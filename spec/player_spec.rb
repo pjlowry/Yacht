@@ -2,8 +2,8 @@ require '../lib/player.rb'
 require '../lib/turn.rb'
 require '../lib/die.rb'
 
-turn = Turn.new
 player1 = Player.new("player1")
+turn = Turn.new(player1)
 our_die = Die.new(6)
 our_roll = [our_die.throw, our_die.throw, our_die.throw, our_die.throw, our_die.throw].sort
 

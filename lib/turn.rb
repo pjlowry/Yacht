@@ -1,4 +1,5 @@
 require '../lib/player.rb'
+require '../lib/yacht_game.rb'
 
 class Turn
 	attr_reader :over, :points
@@ -12,27 +13,25 @@ class Turn
 
 	def points(roll)
 		if yacht(roll)
-			50
+			@points += 50
 	  elsif straight(roll)
-	  	40
+	  	@points += 40
 	  elsif full_house(roll)
-	  	25
+	  	@points += 25
 	  elsif first_four_of_a_kind(roll)
-	  	roll[0] + roll[1] + roll[2] + roll[3]
+	  	@points += roll[0] + roll[1] + roll[2] + roll[3]
 	  elsif second_four_of_a_kind(roll)
-	  	roll[1] + roll[2] + roll[3] + roll[4]
+	  	@points += roll[1] + roll[2] + roll[3] + roll[4]
 	  else
-	  	0
+	  	@points += 0
   	end
 	end
 
+
 	def raise_score
-		@player.score += Turn.points(roll)
+		@player.add_points(@points)
 	end
 
-	def raise_turn_count
-		@player.turn_count += 1
-	end
 
 
 	private
@@ -57,3 +56,6 @@ class Turn
 		roll[0] != roll[1] && roll[1] == roll[2] && roll[2] == roll[3] && roll[3] == roll[4]
 	end
 end
+
+
+#Turn.points(roll)

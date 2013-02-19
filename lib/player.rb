@@ -12,6 +12,3 @@ class Player
 	end
 end
 
-	# def raise_turn_count(number_of_turns)
-	# 	@turn_count += number_of_turns
-	# end
