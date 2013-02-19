@@ -1,4 +1,4 @@
-require '../lib/player.rb'
+require './lib/player.rb'
 
 class Game
   attr_reader :players, :round_count
